@@ -5,37 +5,7 @@ from django.contrib.auth.models import (
     BaseUserManager,
 )
 
-<<<<<<< Updated upstream
-class UserManager(BaseUserManager):
-
-    def create_user(self, email, password=None, **extra_fields):
-        user = self.model(email=self.normalize_email(email), **extra_fields)
-        user.set_password(password)
-        user.save()
-
-        return user
-
-    # def create_superuser(self, email, password):
-    #     user = self.model(email=email, password)
-    #     user.is_staff = True
-    #     user.is_superuser = True
-    #     user.save()
-
-    #     return user
-
-# Create your models here.
-class User(AbstractBaseUser):
-    name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=100)
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(max_length=255, unique=True)
-
-    objects = UserManager()
-
-    USERNAME_FIELD = 'email'
-=======
 from django.contrib.auth import get_user_model
->>>>>>> Stashed changes
 
 User = get_user_model()
 

@@ -40,15 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'core',
     'rest_framework',
-<<<<<<< Updated upstream
-=======
     'rest_framework.authtoken',
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "dj_rest_auth",
     "dj_rest_auth.registration",
->>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
