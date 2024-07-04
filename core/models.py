@@ -5,6 +5,7 @@ from django.contrib.auth.models import (
     BaseUserManager,
 )
 
+<<<<<<< Updated upstream
 class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None, **extra_fields):
@@ -32,7 +33,11 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+=======
+from django.contrib.auth import get_user_model
+>>>>>>> Stashed changes
 
+User = get_user_model()
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -47,7 +52,6 @@ class Group(models.Model):
     users = models.ManyToManyField(User)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
 
 class Comment(models.Model):
     desription = models.TextField()
