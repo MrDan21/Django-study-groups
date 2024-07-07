@@ -24,6 +24,8 @@ from core import views
 
 router = routers.DefaultRouter()
 router.register(r'api/categories', views.CategoryViewSet)
+router.register(r'api/groups', views.GroupViewSet)
+router.register(r'api/comments', views.CommentViewSet)
 
 urlpatterns = [
 	path('', include(router.urls)),
