@@ -9,6 +9,27 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+class UserManager(BaseUserManager):
+
+    def create_user(self, email, password=None, **extra_fields):
+        user = self.model(email=email, **extra_fields)
+        user.set_password(password)
+        user.save()
+
+        return user
+
+# Create your models here.
+class User(AbstractBaseUser):
+    name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=100)
+    username = models.CharField(max_length=50, unique=True)
+    email = models.EmailField(max_length=255, unique=True)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -23,10 +44,10 @@ class Group(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+
 class Comment(models.Model):
     desription = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-

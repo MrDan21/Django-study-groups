@@ -23,7 +23,10 @@ from dj_rest_auth.views import LoginView, LogoutView, UserDetailsView
 from core import views
 
 router = routers.DefaultRouter()
-router.register(r'api/categories', views.CategoryViewSet)
+router.register(r'categories', views.CategoryViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'comments', views.CommentViewSet)
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
 	path('', include(router.urls)),
