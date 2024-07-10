@@ -1,4 +1,4 @@
-from core.models import Category, Comment, Group
+from core.models import Category
 from rest_framework import permissions, viewsets
 from core.serializers import CategorySerializer, GroupSerializer, CommentSerializer
 from rest_framework import permissions, viewsets, generics, authentication
