@@ -1,4 +1,4 @@
-from core.models import Category
+from core.models import Category, Group, Comment
 from rest_framework import permissions, viewsets
 from core.serializers import CategorySerializer, GroupSerializer, CommentSerializer
 from rest_framework import permissions, viewsets, generics, authentication
@@ -11,7 +11,7 @@ from core.permissions import IsOwnerOrReadOnly
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = []
 
     http_method_names = ['get', 'post']
 
@@ -21,7 +21,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
 class CommentViewSet(viewsets.ModelViewSet):
     """
@@ -29,4 +29,4 @@ class CommentViewSet(viewsets.ModelViewSet):
     """
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []

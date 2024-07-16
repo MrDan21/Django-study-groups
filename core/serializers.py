@@ -6,12 +6,12 @@ from django.utils.translation import gettext as _
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['name', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'created_at', 'updated_at']
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ['name', 'description', 'category', 'user_limit', 'users', 'created_at', 'updated_at']
+        fields = ['name', 'description', 'category', 'user_limit', 'created_at', 'updated_at']
 
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
